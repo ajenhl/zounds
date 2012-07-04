@@ -1,0 +1,6 @@
+# Ignore compile Python files.
+*.pyc
+# Ignore backup files.
+*~
+# Ignore Sphinx build directory
+docs/build

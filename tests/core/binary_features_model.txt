@@ -1,0 +1,45 @@
+[Base Features]
+
+anterior
+back
+central
+consonantal
+continuant
+coronal
+dental
+high
+long
+low
+mid
+nasal
+rounded
+sonorant
+syllabic
+voiced
+
+[Base Characters]
+
+p: anterior, consonantal
+b: anterior, consonantal, voiced
+t: anterior, consonantal, coronal
+d: anterior, consonantal, coronal, voiced
+
+[Diacritic Characters]
+
+̬: +voiced
+
+[Spacing Characters]
+
+ː: +long
+
+[Suprasegmental Features]
+
+phrase
+stressed
+syllabic
+
+[Suprasegmental Characters]
+
+|: +phrase, +syllabic
+.: +syllabic
+ˈ: +stressed, +syllabic
