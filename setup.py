@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 
-from lib import __version__
+from zounds import __version__
 
 
 setup(name = 'IPA Zounds',
@@ -19,7 +19,6 @@ setup(name = 'IPA Zounds',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Operating System :: OS Independent',
         'Topic :: Text Processing :: Linguistic'],
-      package_dir = {'zounds': 'lib'},
       packages = ['zounds'],
       scripts = ['scripts/zounds'],
       )
