@@ -10,8 +10,9 @@ INAPPLICABLE_FEATURE = '2'
 #: Symbol specifying that a character does not possess a feature.
 NOT_HAS_FEATURE = '0'
 
-#: Normalised form marker, indicating the start of a new cluster.
-NFM = 'M'
+#: Applier form marker, indicating the start of a new normalised form
+#: sequence.
+AFM = 'M'
 #: Marker for the beginning of a normalised form sequence for a
 #: base (non-suprasegmental) character/cluster.
 BNFM = 'B'

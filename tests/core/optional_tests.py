@@ -4,7 +4,7 @@ import unittest
 
 from zounds import BaseCharacter, BaseCluster, BaseFeature, BaseFeatureSet, Group, Optional
 from zounds.binary_features_model_parser import BinaryFeaturesModelParser
-from zounds.constants import BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NFM, NOT_HAS_FEATURE
+from zounds.constants import AFM, BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NOT_HAS_FEATURE
 from zounds.exceptions import IllegalArgumentError, MismatchedModelsError
 
 
@@ -23,7 +23,7 @@ class OptionalTestCase (unittest.TestCase):
     def test_applier_form (self):
         a = BaseCharacter(self.bfm, 'a')
         cluster1 = BaseCluster(self.bfm, base_character=a)
-        cluster1_form = '{0}{1}{2}{3}{3}'.format(NFM, BNFM, HAS_FEATURE,
+        cluster1_form = '{0}{1}{2}{3}{3}'.format(AFM, BNFM, HAS_FEATURE,
                                                  NOT_HAS_FEATURE)
         self.optional.append(cluster1)
         expected = '({})?'.format(cluster1_form)
@@ -35,7 +35,7 @@ class OptionalTestCase (unittest.TestCase):
         feature_set = BaseFeatureSet(self.bfm)
         feature_set.set(voiced, HAS_FEATURE)
         feature_set_form = '{0}{1}{2}{2}{3}'.format(
-            NFM, BNFM, INAPPLICABLE_FEATURE, HAS_FEATURE)
+            AFM, BNFM, INAPPLICABLE_FEATURE, HAS_FEATURE)
         self.optional.append(feature_set)
         expected = '({}{})*'.format(cluster1_form, feature_set_form)
         self.assertEqual(self.optional.applier_form, expected)

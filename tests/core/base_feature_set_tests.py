@@ -3,7 +3,7 @@
 import unittest
 
 from zounds import BaseFeature, BaseFeatureSet, BinaryFeaturesModel, SuprasegmentalFeature
-from zounds.constants import BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NFM, NOT_HAS_FEATURE
+from zounds.constants import AFM, BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NOT_HAS_FEATURE
 from zounds.exceptions import MismatchedTypesError
 from zounds.normalised_form import NormalisedForm
 
@@ -20,19 +20,19 @@ class BaseFeatureSetTestCase (unittest.TestCase):
 
     def test_applier_form (self):
         bfs = BaseFeatureSet(self.bfm)
-        af1 = '{0}{1}{2}{2}{2}{2}{2}'.format(NFM, BNFM, INAPPLICABLE_FEATURE)
+        af1 = '{0}{1}{2}{2}{2}{2}{2}'.format(AFM, BNFM, INAPPLICABLE_FEATURE)
         self.assertEqual(bfs.applier_form, af1)
         bfs.set(self.anterior, HAS_FEATURE)
-        af2 = '{0}{1}{2}{3}{3}{3}{3}'.format(NFM, BNFM, HAS_FEATURE,
+        af2 = '{0}{1}{2}{3}{3}{3}{3}'.format(AFM, BNFM, HAS_FEATURE,
                                              INAPPLICABLE_FEATURE)
         self.assertEqual(bfs.applier_form, af2)
         bfs.set(self.long, NOT_HAS_FEATURE)
-        af3 = '{0}{1}{2}{3}{3}{4}{3}'.format(NFM, BNFM, HAS_FEATURE,
+        af3 = '{0}{1}{2}{3}{3}{4}{3}'.format(AFM, BNFM, HAS_FEATURE,
                                              INAPPLICABLE_FEATURE,
                                              NOT_HAS_FEATURE)
         self.assertEqual(bfs.applier_form, af3)
         bfs.set(self.anterior, None)
-        af4 = '{0}{1}{3}{3}{3}{4}{3}'.format(NFM, BNFM, HAS_FEATURE,
+        af4 = '{0}{1}{3}{3}{3}{4}{3}'.format(AFM, BNFM, HAS_FEATURE,
                                              INAPPLICABLE_FEATURE,
                                              NOT_HAS_FEATURE)
         self.assertEqual(bfs.applier_form, af4)

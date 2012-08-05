@@ -1,4 +1,4 @@
-from .constants import NFM
+from .constants import AFM
 from .exceptions import IllegalArgumentError
 from .base_normalised_form import BaseNormalisedForm
 from .rule_element import RuleElement
@@ -7,6 +7,10 @@ from .word_element import WordElement
 
 
 class Cluster (RuleElement, WordElement):
+
+    """A Cluster is the combination of either a single base character
+    with zero or more spacing and diacritic characters or one or more
+    suprasegmental characters."""
 
     @staticmethod
     def __new__ (cls, binary_features_model, normalised_form=None):
@@ -29,7 +33,7 @@ class Cluster (RuleElement, WordElement):
         :rtype: `str`
 
         """
-        return '{}{}'.format(NFM, self.normalised_form)
+        return '{}{}'.format(AFM, self.normalised_form)
 
     @property
     def normalised_form (self):

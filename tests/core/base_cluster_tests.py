@@ -5,7 +5,7 @@ import unittest
 from zounds import BaseCharacter, BaseFeature, BinaryFeaturesModel, DiacriticCharacter, SpacingCharacter
 from zounds.base_cluster import BaseCluster
 from zounds.cluster import Cluster
-from zounds.constants import BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NFM, NOT_HAS_FEATURE
+from zounds.constants import AFM, BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NOT_HAS_FEATURE
 from zounds.exceptions import IllegalArgumentError, MismatchedModelsError, MismatchedTypesError
 from zounds.normalised_form import NormalisedForm
 
@@ -129,18 +129,18 @@ class ClusterTestCase (unittest.TestCase):
 
     def test_applier_form (self):
         cluster1 = BaseCluster(self.bfm, base_character=self.p)
-        af1 = '{0}{1}{2}{3}{3}{3}{3}'.format(NFM, BNFM, HAS_FEATURE,
+        af1 = '{0}{1}{2}{3}{3}{3}{3}'.format(AFM, BNFM, HAS_FEATURE,
                                              NOT_HAS_FEATURE)
         self.assertEqual(cluster1.applier_form, af1)
         cluster2 = BaseCluster(self.bfm, base_character=self.q,
                            diacritic_characters=[self.caret])
-        af2 = '{0}{1}{3}{2}{3}{3}{2}'.format(NFM, BNFM, HAS_FEATURE,
+        af2 = '{0}{1}{3}{2}{3}{3}{2}'.format(AFM, BNFM, HAS_FEATURE,
                                              NOT_HAS_FEATURE)
         self.assertEqual(cluster2.applier_form, af2)
         cluster3 = BaseCluster(self.bfm, base_character=self.q,
                                diacritic_characters=[self.caret],
                                spacing_characters=[self.ː])
-        af3 = '{0}{1}{3}{2}{3}{2}{2}'.format(NFM, BNFM, HAS_FEATURE,
+        af3 = '{0}{1}{3}{2}{3}{2}{2}'.format(AFM, BNFM, HAS_FEATURE,
                                              NOT_HAS_FEATURE)
         self.assertEqual(cluster3.applier_form, af3)
 

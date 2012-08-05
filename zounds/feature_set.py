@@ -1,4 +1,4 @@
-from .constants import INAPPLICABLE_FEATURE, NFM
+from .constants import AFM, INAPPLICABLE_FEATURE
 from .exceptions import MismatchedTypesError
 from .normalised_form import NormalisedForm
 from .rule_element import RuleElement
@@ -22,7 +22,7 @@ class FeatureSet (RuleElement, WordElement):
         :rtype: `str`
 
         """
-        return '{}{}'.format(NFM, self.normalised_form)
+        return '{}{}'.format(AFM, self.normalised_form)
 
     @property
     def normalised_form (self):

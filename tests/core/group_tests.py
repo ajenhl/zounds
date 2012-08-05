@@ -3,7 +3,7 @@
 import unittest
 
 from zounds import BaseCharacter, BaseCluster, BaseFeatureSet, Group, Optional
-from zounds.constants import BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NFM, NOT_HAS_FEATURE
+from zounds.constants import AFM, BNFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NOT_HAS_FEATURE
 from zounds.binary_features_model_parser import BinaryFeaturesModelParser
 from zounds.exceptions import IllegalArgumentError, MismatchedModelsError
 
@@ -22,7 +22,7 @@ class GroupTestCase (unittest.TestCase):
     def test_applier_form (self):
         group = Group(self.bfm, 1)
         feature_set = BaseFeatureSet(self.bfm)
-        feature_set_form = '{0}{1}{2}{2}{2}'.format(NFM, BNFM,
+        feature_set_form = '{0}{1}{2}{2}{2}'.format(AFM, BNFM,
                                                     INAPPLICABLE_FEATURE)
         self.assertEqual(feature_set.applier_form, feature_set_form)
         group.append(feature_set)
@@ -32,7 +32,7 @@ class GroupTestCase (unittest.TestCase):
         cluster = BaseCluster(self.bfm, base_character=c)
         optional = Optional(self.bfm)
         optional.append(cluster)
-        optional_form = '({0}{1}{2}{3}{2})?'.format(NFM, BNFM, HAS_FEATURE,
+        optional_form = '({0}{1}{2}{3}{2})?'.format(AFM, BNFM, HAS_FEATURE,
                                                     NOT_HAS_FEATURE)
         self.assertEqual(optional.applier_form, optional_form)
         group.append(optional)

@@ -4,7 +4,7 @@ import unittest
 
 from zounds import BaseCharacter, BinaryFeaturesModel, SuprasegmentalCharacter, SuprasegmentalFeature
 from zounds.cluster import Cluster
-from zounds.constants import HAS_FEATURE, INAPPLICABLE_FEATURE, NFM, NOT_HAS_FEATURE, SNFM
+from zounds.constants import AFM, HAS_FEATURE, INAPPLICABLE_FEATURE, NOT_HAS_FEATURE, SNFM
 from zounds.exceptions import IllegalArgumentError, MismatchedModelsError, MismatchedTypesError
 from zounds.normalised_form import NormalisedForm
 from zounds.suprasegmental_cluster import SuprasegmentalCluster
@@ -29,12 +29,12 @@ class ClusterTestCase (unittest.TestCase):
     def test_applier_form (self):
         cluster1 = SuprasegmentalCluster(self.bfm, suprasegmental_characters=
                                          [self.a])
-        af1 = '{0}{1}{2}{3}{4}'.format(NFM, SNFM, HAS_FEATURE,
+        af1 = '{0}{1}{2}{3}{4}'.format(AFM, SNFM, HAS_FEATURE,
                                        INAPPLICABLE_FEATURE, NOT_HAS_FEATURE)
         self.assertEqual(cluster1.applier_form, af1)
         cluster2 = SuprasegmentalCluster(self.bfm, suprasegmental_characters=
                                          [self.a, self.b])
-        af2 = '{0}{1}{2}{3}{3}'.format(NFM, SNFM, HAS_FEATURE, NOT_HAS_FEATURE)
+        af2 = '{0}{1}{2}{3}{3}'.format(AFM, SNFM, HAS_FEATURE, NOT_HAS_FEATURE)
         self.assertEqual(cluster2.applier_form, af2)
     
     def test_normalised_form (self):
